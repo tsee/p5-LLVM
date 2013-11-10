@@ -1,0 +1,10 @@
+.*.sw[po]
+Makefile.PL
+MYMETA.*
+META.*
+LLVM.bs
+LLVM.c
+*.o
+blib/
+Makefile
+pm_to_blib
