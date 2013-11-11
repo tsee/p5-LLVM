@@ -37,6 +37,35 @@ double(class)
 
 	OUTPUT: RETVAL
 
+
+Type
+IV(class)
+	SV *class
+
+	ALIAS:
+		UV = 1
+	CODE:
+		RETVAL = LLVMIntType(sizeof(IV)*8);
+
+	OUTPUT: RETVAL
+
+Type
+NV(class)
+	SV *class
+	CODE:
+		switch (sizeof(NV)) {
+		case sizeof(double):
+			RETVAL = LLVMDoubleType();
+			break;
+		case sizeof(float):
+			RETVAL = LLVMFloatType();
+			break;
+		default:
+			abort();
+		}
+
+	OUTPUT: RETVAL
+
 Type
 func(class, ret_type, ...)
 	SV *class
